@@ -1,0 +1,19 @@
+###Definição da baseUrl
+@baseUrl = http://localhost:8080
+###Requisição com Post para criar um novo consultorio
+POST {{baseUrl}}/consultorio
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nameConsultorio": "Sorriso",
+  "enderecoConsultorio": "Rua A esquina com B"
+}
+###Requisição com Get
+GET {{baseUrl}}/consultorio
+Content-type: application/json
+Accept: application/json
+
+{
+  "my-json-field": "my-json-value"
+}
