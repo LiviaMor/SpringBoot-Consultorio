@@ -12,7 +12,7 @@ Accept: application/json
   "enderecoPaciente": "Rua C-123, Jardim America",
   "telefonePaciente": "62-1234-2323",
   "emailPaciente": "amanda@gmail.com",
-  "dataNascimentoPaciente": "01/02/1989",
+  "dataNascimentoPaciente": "1989-02-01",
   "sexoPaciente": "Feminino"
 }
 
