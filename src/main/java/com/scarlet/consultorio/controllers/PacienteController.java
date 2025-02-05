@@ -51,7 +51,7 @@ public class PacienteController {
         pacienteModel.setNomePaciente(pacienteRecordDto.nomePaciente());
         pacienteModel.setCpfPaciente(pacienteRecordDto.cpfPaciente());
         pacienteModel.setRgPaciente(pacienteRecordDto.rgPaciente());
-        pacienteModel.setEnderecoPaciente(pacienteRecordDto.enderecoPaciente());
+        pacienteModel.setEnderecoPaciente(pacienteRecordDto.enderecoPaciente());gis
         pacienteModel.setTelefonePaciente(pacienteRecordDto.telefonePaciente());
         pacienteModel.setEmailPaciente(pacienteRecordDto.emailPaciente());
         pacienteModel.setDataNascimentoPaciente(pacienteRecordDto.dataNascimentoPaciente());
