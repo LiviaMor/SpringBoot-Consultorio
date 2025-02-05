@@ -1,0 +1,27 @@
+###Definição da baseUrl
+@baseUrl = http://localhost:8080
+###Requisição com Post para criar um novo paciente
+POST {{baseUrl}}/paciente
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nomePaciente": "Amanda",
+  "cpfPaciente": "123.341.312-00",
+  "rgPaciente": "123.234",
+  "enderecoPaciente": "Rua C-123, Jardim America",
+  "telefonePaciente": "62-1234-2323",
+  "emailPaciente": "amanda@gmail.com",
+  "dataNascimentoPaciente": "01/02/1989",
+  "sexoPaciente": "Feminino"
+}
+
+###Requisição com Get
+GET {{baseUrl}}/paciente
+Content-type: application/json
+Accept: application/json
+
+{
+  "my-json-field": "my-json-value"
+}
+
