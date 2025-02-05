@@ -1,16 +1,18 @@
 package com.scarlet.consultorio.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.UUID;
 
 @Entity
 @Data
 @Table (name = "anamnese")
-public class AnamneseModel implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-    private Long idAnamnese;
-    private Long idPaciente;
+public class AnamneseModel {
+@Id
+@GeneratedValue (strategy = GenerationType.UUID)
+    private UUID idAnamnese;
+    private UUID idPaciente;
     private String queixaPrincipal;
     private String historicoMedico;
     }

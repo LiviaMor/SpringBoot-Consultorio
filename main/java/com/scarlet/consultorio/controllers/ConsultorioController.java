@@ -31,7 +31,7 @@ public class ConsultorioController {
 
     @GetMapping("/consultorio")
     public ResponseEntity<List<ConsultorioModel>> getAllConsultorio() {
-        List<ConsultorioModel> consultorios = consultorioRepository.findAll();
+        List<ConsultorioModel> consultoriO = consultorioRepository.findAll();
 
         return ResponseEntity.status(HttpStatus.OK).body(consultorioRepository.findAll());
     }
@@ -45,11 +45,12 @@ public class ConsultorioController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(consultoriO.get());
     }
+
     @PutMapping("/consultorio/{id}")
-    public ResponseEntity<Object> uptadeConsultorio(@PathVariable (value="id") UUID id,
+    public ResponseEntity<Object> uptadeConsultorio(@PathVariable(value = "id") UUID id,
                                                     @RequestBody @Valid ConsultorioRecordDto consultorioRecordDto) {
         Optional<ConsultorioModel> consultoriO = consultorioRepository.findById(id);
-        if(consultoriO.isEmpty()){
+        if (consultoriO.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consultório não encontrado.");
         }
         var consultorioModel = consultoriO.get();
@@ -60,13 +61,12 @@ public class ConsultorioController {
     @DeleteMapping("/consultorio/{id}")
     public ResponseEntity<Object> deleteConsultorio(@PathVariable(value = "id") UUID id) {
         Optional<ConsultorioModel> consultoriO = consultorioRepository.findById(id);
-        if(consultoriO.isEmpty()){
+        if (consultoriO.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consultório não encontrado.");
         }
         consultorioRepository.delete(consultoriO.get());
         return ResponseEntity.status(HttpStatus.OK).body("Consultório removido com sucesso.");
     }
-
 
 
 }
