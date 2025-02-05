@@ -4,7 +4,6 @@ import com.scarlet.consultorio.dtos.ConsultorioRecordDto;
 import com.scarlet.consultorio.models.ConsultorioModel;
 import com.scarlet.consultorio.repositories.ConsultorioRepository;
 import jakarta.validation.Valid;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +25,17 @@ public class ConsultorioController {
     public ResponseEntity<ConsultorioModel> saveConsultorio(@RequestBody @Valid ConsultorioRecordDto consultorioRecordDto) {
         var consultorioModel = new ConsultorioModel();
         copyProperties(consultorioRecordDto, consultorioModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(consultorioRepository.save(consultorioModel));
+
+        var savedModel = consultorioRepository.save(consultorioModel);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedModel);
     }
 
     @GetMapping("/consultorio")
     public ResponseEntity<List<ConsultorioModel>> getAllConsultorio() {
         List<ConsultorioModel> consultorios = consultorioRepository.findAll();
 
-        return ResponseEntity.status(HttpStatus.OK).body(consultorioRepository.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(consultorios);
     }
 
     @GetMapping("/consultorio/{id}")
