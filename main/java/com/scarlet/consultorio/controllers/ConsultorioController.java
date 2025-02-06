@@ -47,7 +47,7 @@ public class ConsultorioController {
     }
 
     @PutMapping("/consultorio/{id}")
-    public ResponseEntity<Object> uptadeConsultorio(@PathVariable(value = "id") UUID id,
+    public ResponseEntity<Object> updateConsultorio(@PathVariable(value = "id") UUID id,
                                                     @RequestBody @Valid ConsultorioRecordDto consultorioRecordDto) {
         Optional<ConsultorioModel> consultoriO = consultorioRepository.findById(id);
         if (consultoriO.isEmpty()) {
