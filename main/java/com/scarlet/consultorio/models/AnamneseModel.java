@@ -21,7 +21,7 @@ public class AnamneseModel {
     private Boolean alergias;
     @Column (name = "medicamento")
     private Boolean medicamento;
-    @Column (name = "cirugia")
+    @Column (name = "cirurgia")
     private Boolean cirurgia;
     @Column (name = "diabetes")
     private Boolean diabetes;
@@ -29,5 +29,6 @@ public class AnamneseModel {
     private Boolean hipertensao;
     @Column (name = "habitos")
     private Boolean habitos;
-
+    @Column (name = "coracao")
+    private Boolean coracao;
     }
