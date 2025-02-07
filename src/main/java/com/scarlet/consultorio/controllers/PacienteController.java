@@ -4,6 +4,7 @@ import com.scarlet.consultorio.dtos.PacienteRecordDto;
 import com.scarlet.consultorio.models.PacienteModel;
 import com.scarlet.consultorio.repositories.PacienteRepository;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.springframework.beans.BeanUtils.copyProperties;
-
 @RestController
 public class PacienteController {
     @Autowired
@@ -23,7 +22,7 @@ public class PacienteController {
     @PostMapping("/paciente")
     public ResponseEntity<PacienteModel> savePaciente(@RequestBody @Valid PacienteRecordDto pacienteRecordDto) {
         var pacienteModel = new PacienteModel();
-        copyProperties(pacienteModel, pacienteRecordDto);
+        BeanUtils.copyProperties(pacienteRecordDto, pacienteModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteRepository.save(pacienteModel));
     }
 
