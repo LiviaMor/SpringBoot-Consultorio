@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.springframework.beans.BeanUtils.*;
 
 @RestController
 public class ConsultorioController {
@@ -25,7 +24,7 @@ public class ConsultorioController {
     @PostMapping("/consultorio")
     public ResponseEntity<ConsultorioModel> saveConsultorio(@RequestBody @Valid ConsultorioRecordDto consultorioRecordDto) {
         var consultorioModel = new ConsultorioModel();
-        copyProperties(consultorioRecordDto, consultorioModel);
+        BeanUtils.copyProperties(consultorioRecordDto, consultorioModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(consultorioRepository.save(consultorioModel));
     }
 
@@ -54,7 +53,7 @@ public class ConsultorioController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Consultório não encontrado.");
         }
         var consultorioModel = consultoriO.get();
-        copyProperties(consultorioRecordDto, consultorioModel);
+        BeanUtils.copyProperties(consultorioRecordDto, consultorioModel);
         return ResponseEntity.status(HttpStatus.OK).body(consultorioRepository.save(consultorioModel));
     }
 
