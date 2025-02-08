@@ -4,6 +4,7 @@ import com.scarlet.consultorio.dtos.ConsultaRecordDto;
 import com.scarlet.consultorio.models.ConsultaModel;
 import com.scarlet.consultorio.repositories.ConsultaRepository;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class ConsultaController {
     @PostMapping("/consulta")
     public ResponseEntity<ConsultaModel> saveConsulta(@RequestBody ConsultaRecordDto consultaRecordDto) {
         var consultaModel = new ConsultaModel();
-        copyProperties (consultaRecordDto, consultaModel);
+        BeanUtils.copyProperties (consultaRecordDto, consultaModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(consultaRepository.save(consultaModel));
 
     }
