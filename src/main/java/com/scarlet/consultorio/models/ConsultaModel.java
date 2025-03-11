@@ -17,4 +17,14 @@ public class ConsultaModel {
     private LocalDate dataConsulta;
     private String descricao;
     private double valor;
+
+    // Cada consulta está associada a um paciente.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPaciente")
+    private PacienteModel paciente;
+
+    // Cada consulta gera uma referência no caixa.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "caixa_id")
+    private CaixaModel caixa;
 }

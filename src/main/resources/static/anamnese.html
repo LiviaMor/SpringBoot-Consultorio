@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamnese</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <h1>Anamnese</h1>
+</header>
+<nav class="nav">
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="consultorio.html">Cadastrar Consultório</a></li>
+        <li><a href="paciente.html">Cadastrar Paciente</a></li>
+        <li><a href="anamnese.html">Anamnese</a></li>
+        <li><a href="consulta.html">Iniciar Atendimento</a></li>
+        <li><a href="caixa.html">Financeiro</a></li>
+    </ul>
+</nav>
+<main class="container">
+    <section class="section">
+        <h2>Cadastrar Anamnese</h2>
+        <form id="anamneseForm" action="/anamnese" method="post">
+            <label for="paciente">Paciente:</label>
+            <select id="paciente" name="paciente_id" required>
+                <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
+            </select><br><br>
+            <!-- Queixa Principal -->
+            <label for="queixaPrincipal">Queixa Principal:</label>
+            <input type="text" id="queixaPrincipal" name="queixaPrincipal" required>
+            <br><br>
+
+            <!-- Histórico Médico -->
+            <label for="historicoMedico">Histórico Médico:</label>
+            <textarea id="historicoMedico" name="historicoMedico" required></textarea>
+            <br><br>
+
+            <!-- Checkbox para informacoes booleanas -->
+            <fieldset>
+                <legend>Informações Adicionais</legend>
+                <label>
+                    <input type="checkbox" name="alergias" value="true">
+                    Possui alergias
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="medicamento" value="true">
+                    Faz uso de medicamentos
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="cirurgia" value="true">
+                    Já passou por cirurgias
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="diabetes" value="true">
+                    Diabetes
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="hipertensao" value="true">
+                    Hipertensão
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="habitos" value="true">
+                    Hábitos de risco (tabagismo, álcool, etc.)
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="coracao" value="true">
+                    Problemas cardíacos
+                </label>
+            </fieldset>
+            <br>
+            <button type="submit" class="myButton">Salvar</button>
+        </form>
+    </section>
+    <section class="section">
+        <h2>Lista de Anamneses</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Paciente</th>
+                <th>Queixa Principal</th>
+                <th>Histórico Médico</th>
+                <th>Alergias</th>
+                <th>Medicamento</th>
+                <th>Cirurgia</th>
+                <th>Diabetes</th>
+                <th>Hipertensão</th>
+                <th>Hábitos</th>
+                <th>Problemas Cardíacos</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="anamnese : ${anamneses}">
+                <td th:text="${anamnese.idAnamnese}">ID</td>
+                <td th:text="${anamnese.paciente.nome}">Paciente</td>
+                <td th:text="${anamnese.queixaPrincipal}">Queixa Principal</td>
+                <td th:text="${anamnese.historicoMedico}">Histórico Médico</td>
+                <td th:text="${anamnese.alergias}">Alergias</td>
+                <td th:text="${anamnese.medicamento}">Medicamento</td>
+                <td th:text="${anamnese.cirurgia}">Cirurgia</td>
+                <td th:text="${anamnese.diabetes}">Diabetes</td>
+                <td th:text="${anamnese.hipertensao}">Hipertensão</td>
+                <td th:text="${anamnese.habitos}">Hábitos</td>
+                <td th:text="${anamnese.coracao}">Coracao</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2025 Sistema de Consultório Odontológico. Todos os direitos reservados.</p>
+</footer>
+<script src="js/script.js"></script>

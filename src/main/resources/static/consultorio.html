@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Consultório</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <h1>Cadastrar Consultorio</h1>
+</header>
+<nav class="nav">
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="consultorio.html">Cadastrar Consultório</a></li>
+        <li><a href="paciente.html">Cadastrar Paciente</a></li>
+        <li><a href="anamnese.html">Anamnese</a></li>
+        <li><a href="consulta.html">Iniciar Atendimento</a></li>
+        <li><a href="caixa.html">Financeiro</a></li>
+    </ul>
+</nav>
+<main class="container">
+    <section class="section">
+        <h2>Cadastrar Consultório</h2>
+        <form id="consultorioForm">
+            <label for="nome">Nome do consultório:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required><br><br>
+            <button type="submit" class="myButton">Cadastrar</button>
+        </form>
+    </section>
+    <section class="section">
+        <h2>Consultórios Cadastrados</h2>
+        <ul id="consultoriosList">
+            <!-- Lista de consultórios cadastrados será exibida aqui -->
+        </ul>
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2025 Sistema de Consultório Odontológico. Todos os direitos reservados.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

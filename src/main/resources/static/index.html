@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+    <h1>Software Odontológico</h1>
+</header>
+
+<main class="container">
+    <section class="section">
+        <h2>Bem-vindo ao Sistema de Consultório Odontológico</h2>
+        <p>Utilize o menu para navegar entre as páginas.</p>
+    </section>
+    <section class="section">
+        <h2>Acesso ao Sistema</h2>
+        <div class="login-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="openTab(event, 'login')">Login</button>
+                <button class="tab-button" onclick="openTab(event, 'forgot-password')">Esqueci a Senha</button>
+                <button class="tab-button" onclick="openTab(event, 'new-account')">Novo Cadastro</button>
+            </div>
+            <div id="login" class="tab-content active">
+                <h3>Login</h3>
+                <form action="login.html" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+            <div id="forgot-password" class="tab-content">
+                <h3>Esqueci a Senha</h3>
+                <form action="forgot-password.html" method="post">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+            <div id="new-account" class="tab-content">
+                <h3>Novo Cadastro</h3>
+                <form action="new-account.html" method="post">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2025 Sistema de Consultório Odontológico. Todos os direitos reservados.</p>
+</footer>
+<script src="js/script.js"></script>
+<script>
+    function openTab(event, tabId) {
+        var i, tabcontent, tabbuttons;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("active");
+        }
+        tabbuttons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabbuttons.length; i++) {
+            tabbuttons[i].classList.remove("active");
+        }
+        document.getElementById(tabId).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+</body>
+</html>
